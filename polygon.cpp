@@ -18,6 +18,13 @@ bool polygon::is_symmetry_axis(const line &line, const std::unordered_set<point>
 }
 
 std::vector<line> polygon::get_symmetric_axes() {
+
+    // order of evasion
+    auto start_point = points[0];
+    std::sort(points.begin(), points.end(), [start_point](point a, point b) {
+        return (a.x - start_point.x) * (b.y - start_point.y) - (a.y - start_point.y) * (b.x - start_point.x);
+    });
+
     std::unordered_set<point> set;
     for (auto& point : points) {
         set.insert(point);

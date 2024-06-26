@@ -5,7 +5,6 @@
 
 int main(int argc, char* args[]) {
 
-    // TODO: порядок обхода
     std::ifstream in(args[1]);
 
     polygon polygon;
