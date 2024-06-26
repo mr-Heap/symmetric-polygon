@@ -22,7 +22,7 @@ std::vector<line> polygon::get_symmetric_axes() {
     // order of evasion
     auto start_point = points[0];
     std::sort(points.begin(), points.end(), [start_point](point a, point b) {
-        return (a.x - start_point.x) * (b.y - start_point.y) - (a.y - start_point.y) * (b.x - start_point.x);
+        return (a.x - start_point.x) * (b.y - start_point.y) - (a.y - start_point.y) * (b.x - start_point.x) < 0;
     });
 
     std::unordered_set<point> set;
